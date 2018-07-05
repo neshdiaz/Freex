@@ -7,5 +7,22 @@
 {% block imagen-cabecera %} {% static 'core/img/home2-bg.jpg' %} {% endblock %}
 
 {% block content %}
-    
+<!-- Contenido Principal -->
+<div class="container">
+  <!-- Catalogo -->
+  {% for prestador in prestadores %}
+    <div class="row">   
+      <div class="col-lg-3 col-md-4 offset-lg-1">
+        <img class="img-fluid" src="img/about-bg.jpg" alt="">
+      </div>
+      <div class="col-lg-7 col-md-8">
+        <h2>{{prestador.nommbres}}</h2>
+        <p> {{prestador.pais}}</p>
+        <p> {{prestador.ciudad}}</p>
+        <p><a href="#">Enlace</a></p>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
 {% endblock %}

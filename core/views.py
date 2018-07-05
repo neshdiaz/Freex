@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Prestador
 
 app_name = 'core'
 
@@ -12,7 +13,8 @@ def about(request):
 
 
 def catalogo(request):
-    return render(request, 'core/catalogo.html')
+    prestadores = Prestador.objects.all()[:5]
+    return render(request, 'core/catalogo.html', {'prestadores': prestadores})
 
 
 def soporte(request):
