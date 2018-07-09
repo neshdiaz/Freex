@@ -8,21 +8,19 @@
 
 {% block content %}
 <!-- Contenido Principal -->
-<div class="container">
-  <!-- Catalogo -->
-  {% for prestador in prestadores %}
-    <div class="row">   
-      <div class="col-lg-3 col-md-4 offset-lg-1">
-        <img class="img-fluid" src="{% static 'core/img/avatar.jpg' %}" alt="">
-      </div>
-      <div class="col-lg-7 col-md-8">
-        <h2>{{prestador.nommbres}}</h2>
-        <p> {{prestador.pais}}
-        <p> {{prestador.ciudad}}
-        <a href="#">Enlace</a></p>
+<!-- Catalogo -->
+    <div class="container">
+      <div class="row">   
+      {% for prestador in prestadores %}
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" style="height: 18rem;" src="{{ prestador.foto_perfil.url }}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> {{ prestador.nombres }} </h5>
+            <p class="card-text"> {{ prestador.descripcion|truncatechars:200 }} </p>
+            <a href="#" class="btn btn-primary">Contactar</a>
+          </div>
+        </div>
+      {% endfor %}
       </div>
     </div>
-    <hr>
-  {% endfor %}
-</div>
 {% endblock %}
